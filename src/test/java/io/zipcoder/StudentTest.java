@@ -3,6 +3,8 @@ package io.zipcoder;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 // Given
 // When
 // Then
@@ -82,10 +84,19 @@ public class StudentTest {
     @Test
     public void getExamScores() {
         // Given
-
+        Double examScore1 = 100.00;
+        Double examScore2 = 105.00;
+        Double examScore3 = 110.00;
+        Double[] examScores = new Double[]{examScore1, examScore2, examScore3};
+        Student student = new Student(null, null, Arrays.asList(examScores));
+        String predictedScores = "Exam Score \n" +
+                "\t Exam01->100.0\n" +
+                "\t Exam11->105.0\n" +
+                "\t Exam21->110.0\n";
         // When
-
+        String actualExamScores = student.getExamScores();
         // Then
+        Assert.assertEquals(predictedScores, actualExamScores);
     }
 
     @Test
@@ -124,3 +135,4 @@ public class StudentTest {
         // Then
     }
 }
+   // public void convertsExamScoresToAListOfStrings() {
