@@ -2,17 +2,16 @@ package io.zipcoder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.List;
 public class Student {
-    String firstName;
-    String lastName;
+    private String firstName;
+    private String lastName;
+    private final List<Double> examScores;
 
-    ArrayList<Double> examScores;
-
-    public Student(String firstName, String lastName, Double[] testScores) {
+    public Student(String firstName, String lastName, List<Double> testScores) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.examScores = new ArrayList<Double>(Arrays.asList(testScores));
+        this.examScores = testScores;
     }
 
         public String getFirstName () {
@@ -31,8 +30,12 @@ public class Student {
             this.lastName = lastName;
         }
 
-        public ArrayList<Double> getNumberOfTestsTaken () {
-            return getNumberOfTestsTaken();
+        public int getNumberOfTestsTaken () {
+        int counter = 0;
+            for (int i = 0; i < examScores.size(); i++) {
+                counter++;
+            }
+            return counter;
         }
         public String getExamScores () {
         StringBuilder sb = new StringBuilder();
@@ -44,7 +47,7 @@ public class Student {
             return sb.toString();
         }
 
-        public ArrayList<Double> addExamScore () {
+        public List<Double> addExamScore () {
             examScores.add(Double.valueOf(""));
             return examScores;
         }

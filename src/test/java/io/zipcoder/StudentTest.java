@@ -3,7 +3,9 @@ package io.zipcoder;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 // Given
 // When
@@ -14,8 +16,8 @@ public class StudentTest {
         // Given
         String firstName = "Trung";
         String lastName = "Tran";
-        Double[] testScores = new Double[]{
-                100.00, 115.00, 125.00, 135.00};
+        List<Double> testScores = new ArrayList<Double>(
+                Arrays.asList(100.00, 115.00, 125.00, 135.00));
         // When
         Student student = new Student(firstName, lastName, testScores);
         // Then
@@ -27,14 +29,11 @@ public class StudentTest {
     @Test
     public void getFirstName() {
         // Given
-        String firstName = "Trung";
-        String lastName = "Tran";
-        Double[] testScores = new Double[]{
-                100.00, 115.00, 125.00, 135.00};
+        Student student = new Student("Trung", null, null);
         // When
-        Student student = new Student(firstName, lastName, testScores);
+        String actualFirstName = student.getFirstName();
         // Then
-        Assert.assertEquals(firstName, student.getFirstName());
+        Assert.assertEquals(actualFirstName, student.getFirstName());
     }
 
     @Test
@@ -53,32 +52,36 @@ public class StudentTest {
     @Test
     public void getLastName() {
         // Given
-        String firstName = "Trung";
-        String lastName = "Tran";
-        Double[] testScores = new Double[]{
-                100.00, 115.00, 125.00, 135.00};
+        Student student = new Student(null, null, null);
         // When
-        Student student = new Student(firstName, lastName, testScores);
+        String actualLastname = student.getLastName();
         // Then
-        Assert.assertEquals(lastName, student.getLastName());
+        Assert.assertEquals(actualLastname, student.getLastName());
     }
 
     @Test
     public void setLastName() {
         // Given
-
+        Student student = new Student(null,"Tran", null);
         // When
-
+        String lastname = "Tran";
+        student.setLastName(lastname);
         // Then
+        Assert.assertEquals(lastname, student.getLastName());
     }
 
     @Test
     public void getNumberOfTestsTaken() {
         // Given
-
+        Student student = new Student(null,null,null);
+        int expectedTestTaken= 3;
+        for(int i = 0; i < expectedTestTaken; i++){
+            student.getNumberOfTestsTaken();
+        }
         // When
-
+        int actualTestsTaken = student.getNumberOfTestsTaken();
         // Then
+        Assert.assertEquals(expectedTestTaken, actualTestsTaken);
     }
 
     @Test
