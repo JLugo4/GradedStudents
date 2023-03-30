@@ -3,7 +3,7 @@ package io.zipcoder;
 import java.util.*;
 
 public class Classroom {
-    private Collection<Student> students;
+    private final Collection<Student> students;
 
     public Classroom(int maxNumberOfStudents) {
         students = new ArrayList<>(Collections.nCopies(maxNumberOfStudents, null));
@@ -21,7 +21,7 @@ public class Classroom {
         return students;
     }
     public double getAverageExamScore(){
-        double sum = 0;
+        double sum = 0.0;
         int count = 0;
         for (Student student : students) {
             sum += student.getAverageExam();

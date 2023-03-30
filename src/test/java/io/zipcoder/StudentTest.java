@@ -16,7 +16,7 @@ public class StudentTest {
         // Given
         String firstName = "Trung";
         String lastName = "Tran";
-        List<Double> testScores = new ArrayList<Double>(
+        ArrayList<Double> testScores = new ArrayList<Double>(
                 Arrays.asList(100.00, 115.00, 125.00, 135.00));
         // When
         Student student = new Student(firstName, lastName, testScores);
@@ -90,8 +90,8 @@ public class StudentTest {
         Double examScore1 = 100.00;
         Double examScore2 = 105.00;
         Double examScore3 = 110.00;
-        Double[] examScores = new Double[]{examScore1, examScore2, examScore3};
-        Student student = new Student(null, null, Arrays.asList(examScores));
+        ArrayList<Double> examScores = new ArrayList<>(Arrays.asList(examScore1, examScore2, examScore3));
+        Student student = new Student(null, null, examScores);
         String predictedScores = "Exam Score \n" +
                 "\t Exam01->100.0\n" +
                 "\t Exam11->105.0\n" +

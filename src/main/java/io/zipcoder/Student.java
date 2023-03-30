@@ -6,9 +6,9 @@ import java.util.List;
 public class Student {
     private String firstName;
     private String lastName;
-    private final List<Double> examScores;
+    private ArrayList<Double> examScores = new ArrayList<>();
 
-    public Student(String firstName, String lastName, List<Double> testScores) {
+    public Student(String firstName, String lastName, ArrayList<Double> testScores) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.examScores = testScores;
